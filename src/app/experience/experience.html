@@ -1,46 +1,56 @@
 <div id="expirence">
   <div class="bg-light text-dark p-8">
-    <h1 class="text-2xl text-center font-bold">Possuo experiência com</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-      @for (category of stackCategories; track category.name; let isEven = $even) {
-        <div
-          [ngClass]="isEven ? 'md:justify-self-end' : 'md:justify-self-start'"
-          class="card-primary border-dark max-w-md w-full flex justify-self-center gap-2"
-        >
-          <div>
-            <span class="text-xl font-bold">{{ category.name }}</span>
-            <ul class="gap-2">
-              @for (item of category.stacks; track item.name) {
-                <li class="text-lg">
-                  {{ item.name }}
-                  @if (item.yearsOfExperience) {
-                    - {{ item.yearsOfExperience }} ano{{ item.yearsOfExperience > 1 ? 's' : '' }}
-                  }
-                </li>
-              }
-            </ul>
+    <div
+      animate.enter="animate-fade-left animate-once animate-duration-1000 animate-delay-400 animate-ease-in"
+    >
+      <h1 class="text-2xl text-center font-bold">Possuo experiência com</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        @for (category of stackCategories; track category.name; let isEven = $even) {
+          <div
+            [ngClass]="isEven ? 'md:justify-self-end' : 'md:justify-self-start'"
+            class="card-primary border-dark max-w-md w-full flex justify-self-center gap-2"
+          >
+            <div>
+              <span class="text-xl font-bold">{{ category.name }}</span>
+              <ul class="gap-2">
+                @for (item of category.stacks; track item.name) {
+                  <li class="text-lg">
+                    {{ item.name }}
+                    @if (item.yearsOfExperience) {
+                      - {{ item.yearsOfExperience }} ano{{ item.yearsOfExperience > 1 ? 's' : '' }}
+                    }
+                  </li>
+                }
+              </ul>
+            </div>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
   </div>
   <div class="bg-dark text-light p-8">
-    <h1 class="text-2xl text-center font-bold">Lugares por onde passei</h1>
-    <div class="grid grid-cols-1 gap-8 mt-8">
-      @for (experience of companyExperiences; track experience.startDate) {
-        <app-card-colapse
-          [title]="experience.companyName + ' - ' + experience.position"
-          customClasses="card-light border-primary max-w-4xl w-full"
-        >
-          <div class="flex flex-col gap-2">
-            <p class="text-md text-secondary">
-              {{ experience.startDate.toLocaleDateString('pt-BR') }} -
-              {{ experience.endDate ? experience.endDate.toLocaleDateString('pt-BR') : 'Presente' }}
-            </p>
-            <p class="text-lg">{{ experience.description }}</p>
-          </div>
-        </app-card-colapse>
-      }
+    <div
+      animate.enter="animate-fade-right animate-once animate-duration-1000 animate-delay-400 animate-ease-in"
+    >
+      <h1 class="text-2xl text-center font-bold">Lugares por onde passei</h1>
+      <div class="grid grid-cols-1 gap-8 mt-8">
+        @for (experience of companyExperiences; track experience.startDate) {
+          <app-card-colapse
+            [title]="experience.companyName + ' - ' + experience.position"
+            customClasses="card-light border-primary max-w-4xl w-full"
+          >
+            <div class="flex flex-col gap-2">
+              <p class="text-md text-secondary">
+                {{ experience.startDate.toLocaleDateString('pt-BR') }} -
+                {{
+                  experience.endDate ? experience.endDate.toLocaleDateString('pt-BR') : 'Presente'
+                }}
+              </p>
+              <p class="text-lg">{{ experience.description }}</p>
+            </div>
+          </app-card-colapse>
+        }
+      </div>
     </div>
   </div>
 </div>
