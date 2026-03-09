@@ -7,7 +7,6 @@
           [ngClass]="isEven ? 'md:justify-self-end' : 'md:justify-self-start'"
           class="card-primary border-dark max-w-md w-full flex justify-self-center gap-2"
         >
-          <img [src]="category.icon" [alt]="category.name" class="w-16 h-16" />
           <div>
             <span class="text-xl font-bold">{{ category.name }}</span>
             <ul class="gap-2">
@@ -29,18 +28,18 @@
     <h1 class="text-2xl text-center font-bold">Lugares por onde passei</h1>
     <div class="grid grid-cols-1 gap-8 mt-8">
       @for (experience of companyExperiences; track experience.startDate) {
-        <div class="card-light border-primary max-w-4xl w-full flex flex-col justify-self-center gap-4">
-          <div class="gap-2 md:flex justify-between">
-            <p class="text-xl font-bold">
-              {{ experience.companyName }} - {{ experience.position }}
-            </p>
+        <app-card-colapse
+          [title]="experience.companyName + ' - ' + experience.position"
+          customClasses="card-light border-primary max-w-4xl w-full"
+        >
+          <div class="flex flex-col gap-2">
             <p class="text-md text-secondary">
               {{ experience.startDate.toLocaleDateString('pt-BR') }} -
               {{ experience.endDate ? experience.endDate.toLocaleDateString('pt-BR') : 'Presente' }}
             </p>
+            <p class="text-lg">{{ experience.description }}</p>
           </div>
-          <p class="text-lg">{{ experience.description }}</p>
-        </div>
+        </app-card-colapse>
       }
     </div>
   </div>

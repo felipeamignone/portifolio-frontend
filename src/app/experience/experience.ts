@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { CardColapse } from '../shared/card-colapse/card-colapse';
 
 type Stack = {
   name: string;
@@ -8,7 +9,6 @@ type Stack = {
 
 type StackCategory = {
   name: string;
-  icon: string;
   stacks: Stack[];
 };
 
@@ -22,7 +22,7 @@ type CompanyExperience = {
 
 @Component({
   selector: 'app-experience',
-  imports: [NgClass],
+  imports: [NgClass, CardColapse],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
 })
@@ -30,7 +30,6 @@ export class Experience {
   stackCategories: StackCategory[] = [
     {
       name: 'Front-End',
-      icon: 'frontend',
       stacks: [
         { name: 'React', yearsOfExperience: 5 },
         { name: 'Angular', yearsOfExperience: 1 },
@@ -40,7 +39,6 @@ export class Experience {
 
     {
       name: 'Back-End',
-      icon: 'backend',
       stacks: [
         { name: 'Node.js', yearsOfExperience: 3 },
         { name: 'Express', yearsOfExperience: 3 },
@@ -50,7 +48,6 @@ export class Experience {
 
     {
       name: 'Database',
-      icon: 'database',
       stacks: [
         { name: 'MySQL', yearsOfExperience: 3 },
         { name: 'PostgreSQL', yearsOfExperience: 3 },
@@ -60,7 +57,6 @@ export class Experience {
 
     {
       name: 'Cloud e DevOps',
-      icon: 'cloud',
       stacks: [
         { name: 'Docker', yearsOfExperience: 1 },
         { name: 'Oracle Cloud', yearsOfExperience: 3 },

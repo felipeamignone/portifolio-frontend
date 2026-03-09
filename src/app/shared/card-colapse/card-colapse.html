@@ -1,0 +1,22 @@
+<div
+  [ngClass]="customClasses()"
+  class="flex flex-col justify-self-center gap-4"
+  (click)="toggleOpen()"
+>
+  <div class="flex justify-between">
+    <p class="text-xl font-bold">
+      {{ title() }}
+    </p>
+    <span class="text-2xl">
+      {{ isOpen() ? '-' : '+' }}
+    </span>
+  </div>
+  @if (isOpen()) {
+    <div
+      animate.enter="animate-fade-down animate-once animate-duration-500 animate-ease-in"
+      animate.leave="animate-fade-down animate-once animate-reverse animate-duration-500 animate-ease-out"
+    >
+      <ng-content />
+    </div>
+  }
+</div>

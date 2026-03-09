@@ -1,7 +1,11 @@
 <div id="hero" class="grid grid-cols-1 bg-dark md:grid-cols-2 p-8 gap-8">
   <div class="max-w-md justify-self-center md:justify-self-end">
-    <h1 class="text-6xl text-primary">Olá, eu sou o</h1>
-    <h1 class="text-6xl text-primary">Felipe Mignone</h1>
+    <div
+      animate.enter="animate-fade animate-once animate-duration-3000ms animate-delay-500 animate-ease-in"
+    >
+      <h1 class="text-6xl text-primary">Olá, eu sou o</h1>
+      <h1 class="text-6xl text-primary">Felipe Mignone</h1>
+    </div>
     <p class="text-lg text-light mt-4">
       Sou Engenheiro de Software com experiência consolidada em desenvolvimento fullstack, atuando
       principalmente com aplicações web e mobile em ambientes críticos como sistemas financeiros e
@@ -9,9 +13,15 @@
       em arquitetura, APIs e cloud, e atualmente direciono minha carreira para Application Security,
       buscando unir desenvolvimento de software com práticas estruturadas de segurança.
     </p>
-    <button class="btn-primary mt-4" (click)="downloadCV()">
-        Baixar CV
-    </button>
+    <div class="flex gap-4 mt-4">
+      <button
+        class="btn-primary border-light animate-pulse animate-infinite animate-duration-3000 animate-delay-1000 animate-ease-in animate-normal"
+        (click)="downloadCV()"
+      >
+        Portifólio interativo
+      </button>
+      <button class="btn-light" (click)="downloadCV()">Baixar CV</button>
+    </div>
   </div>
   <div class="flex gap-8 max-w-md justify-self-center md:justify-self-start">
     <!-- IMAGEM OU MODELO 3D -->
