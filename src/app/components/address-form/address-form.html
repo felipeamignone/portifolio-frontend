@@ -1,1 +1,65 @@
-<p>address-form works!</p>
+<form #addressForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="flex gap-2">
+    <div class="flex flex-col">
+      <label for="cep">CEP</label>
+      <input
+        id="cep"
+        class="border"
+        required
+        [(ngModel)]="model.cep"
+        name="cep"
+        (blur)="onConsultCep()"
+      />
+    </div>
+  </div>
+
+  <div class="flex gap-2">
+    <div class="flex flex-col">
+      <label for="streetName">Rua</label>
+      <input
+        id="streetName"
+        class="border"
+        disabled
+        [(ngModel)]="model.streetName"
+        name="streetName"
+      />
+    </div>
+
+    <div class="flex flex-col">
+      <label for="neighborhood">Bairro</label>
+      <input
+        id="neighborhood"
+        class="border"
+        disabled
+        [(ngModel)]="model.neighborhood"
+        name="neighborhood"
+      />
+    </div>
+
+    <div class="flex flex-col">
+      <label for="city">Cidade</label>
+      <input id="city" class="border" disabled [(ngModel)]="model.city" name="city" />
+    </div>
+
+    <div class="flex flex-col">
+      <label for="state">Estado</label>
+      <input id="state" class="border" disabled [(ngModel)]="model.state" name="state" />
+    </div>
+  </div>
+
+  <div class="flex gap-2">
+    <div class="flex flex-col">
+      <label for="number">Número</label>
+      <input id="number" class="border" [(ngModel)]="model.number" name="number" />
+    </div>
+
+    <div class="flex flex-col">
+      <label for="complement">Complemento</label>
+      <input id="complement" class="border" [(ngModel)]="model.complement" name="complement" />
+    </div>
+  </div>
+
+  <button type="submit" class="btn-primary" [disabled]="!addressForm.valid || isLoading()">
+    Salvar
+  </button>
+</form>
