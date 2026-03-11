@@ -1,0 +1,19 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col">
+    <label for="name">Nome</label>
+    <input type="text" id="name" class="border" [(ngModel)]="model.name" name="name" />
+  </div>
+  <div class="flex flex-col">
+    <label for="email">Email</label>
+    <input type="text" id="email" class="border" [(ngModel)]="model.email" name="email" />
+  </div>
+  <div class="flex flex-col">
+    <label for="phone">Telefone / Celular</label>
+    <input type="text" id="phone" class="border" [(ngModel)]="model.phone" name="phone" />
+  </div>
+  <div class="flex flex-col">
+    <label for="message">Mensagem</label>
+    <input type="text" id="message" class="border" [(ngModel)]="model.message" name="message" />
+  </div>
+  <button type="submit" class="btn-primary" [disabled]="!contactForm.valid || isSubmitting()">Enviar</button>
+</form>
